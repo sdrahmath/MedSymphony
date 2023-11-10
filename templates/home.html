@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSymphony</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown" style="color: white;">MedSymphony: Harmony of Conditions and Medications</h1>
+        <form method="POST" action="/">
+            <label for="rawtext" class="animate__animated animate__fadeIn" style=" font-weight:bold;">Enter your review:</label><br>
+            <textarea id="rawtext" name="rawtext" rows="4" cols="50" required class="animate__animated animate__fadeIn">{{ rawtext }}</textarea>
+            <br><br>
+            <button type="submit" class="animate__animated animate__fadeInUp" style=" font-weight:bold;">Predict</button>
+        </form>
+        
+
+        {% if result %}
+            <h2 class="animate__animated animate__fadeInUp"style="color: white;" >Prediction Result:</h2>
+            <p class="animate__animated animate__fadeInUp" style=" font-weight:bold; font-size:20px; background:#ffffff42; border-radius:15px; padding:12px; width:fit-content; margin:auto; color:cyan;">Condition: <b style="font-size:26px; color:white;">{{ result }}</b></p>
+            <p class="animate__animated animate__fadeInUp" style=" font-weight:bold; font-size:20px; color: white; ">Top Recommended Drugs:</p>
+            <ul class="animate__animated animate__fadeInUp unordered_list">
+                {% for drug in top_drugs %}
+                    <li class="lists">{{ drug }}</li>
+                {% endfor %}
+            </ul><br>
+            {% if result == "Birth Control" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Birth Control:</h3>
+                    <p>Birth control methods include hormonal contraceptives, barrier methods, and more. Consult with a healthcare professional to find the best option for you.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Consistent and correct use of the chosen contraceptive method.</li>
+                        <li>Regular check-ups with a healthcare provider.</li>
+                        <!-- Add more precautions specific to Birth Control -->
+                    </ul></div>
+                </div>
+            {% elif result == "Depression" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Depression:</h3>
+                    <p>Depression is a mental health disorder characterized by persistent feelings of sadness and a lack of interest or pleasure in daily activities.</p>
+                    </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Build a support system. Surround yourself with understanding and supportive friends and family members.</li>
+                        <li>Engage in regular physical activity. Exercise has been shown to have positive effects on mood and mental well-being.</li>
+                        <li>Practice self-care. Set aside time for activities you enjoy and that bring you relaxation.</li>
+                        <li>Establish a daily routine. Having structure can provide a sense of stability and predictability.</li>
+                        <li>Avoid excessive alcohol and substance use. These can worsen depression symptoms.</li>
+                        <li>Consider medication if prescribed by a healthcare professional. Antidepressant medications can be effective in managing depression.</li>
+                        <li>Attend therapy sessions consistently. Cognitive-behavioral therapy (CBT) and other therapeutic approaches can be beneficial.</li>
+                        <li>Monitor and challenge negative thoughts. Work on changing negative thought patterns through cognitive restructuring.</li>
+                        <li>Educate yourself and your loved ones about depression. Understanding the condition can help reduce stigma and improve support.</li>
+                    </ul></div>
+                </div>
+            {% elif result == "Pain" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Pain:</h3>
+                    <p>Pain can be caused by various factors. Consult with a healthcare professional to determine the cause and appropriate treatment.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Follow the recommended treatment plan provided by your healthcare provider.</li>
+                        <li>Practice stress-reducing techniques.</li>
+                        <!-- Add more precautions specific to Pain -->
+                    </ul></div>
+                </div>
+            {% elif result == "Anxiety" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Anxiety:</h3>
+                    <p>Anxiety is a mental health condition characterized by excessive worry or fear.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Practice relaxation techniques and mindfulness.</li>
+                        <li>Consider therapy or counseling.</li>
+                        <!-- Add more precautions specific to Anxiety -->
+                    </ul></div>
+                </div>
+            {% elif result == "Bipolar Disorder" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Bipolar Disorder:</h3>
+                    <p>Bipolar disorder is a mental health condition characterized by extreme mood swings.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Adhere to prescribed medication regimens.</li>
+                        <li>Regular follow-ups with mental health professionals.</li>
+                        <!-- Add more precautions specific to Bipolar Disorder -->
+                    </ul></div>
+                </div>
+            {% elif result == "ADHD" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about ADHD:</h3>
+                    <p>ADHD (Attention-Deficit/Hyperactivity Disorder) is a neurodevelopmental disorder that affects both children and adults. It's characterized by persistent patterns of inattention, hyperactivity, and impulsivity.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Establish routines and structure. Creating a predictable routine can help individuals with ADHD manage their time and tasks more effectively.</li>
+                        <li>Break tasks into smaller steps. Breaking down tasks into manageable steps can make them more achievable and reduce feelings of overwhelm.</li>
+                        <li>Use visual aids and reminders. Visual cues and reminders, such as calendars, to-do lists, and alarms, can assist with organization and time management.</li>
+                        <li>Encourage regular physical activity. Exercise has been shown to have positive effects on attention and mood. Find activities that are enjoyable and sustainable.</li>
+                        <li>Explore behavioral therapy. Behavioral therapy can provide strategies and coping mechanisms to address specific challenges associated with ADHD.</li>
+                        <li>Consider medication if recommended by a healthcare professional. Stimulant medications and non-stimulant medications may be prescribed to manage symptoms.</li>
+                        <li>Provide a quiet and organized workspace. Minimize distractions and create an environment conducive to focus and productivity.</li>
+                        <li>Encourage healthy sleep habits. Ensure adequate and consistent sleep, as lack of sleep can exacerbate ADHD symptoms.</li>
+                        <li>Teach and reinforce social skills. Social skills training can help individuals with ADHD navigate social interactions and relationships.</li>
+                        <li>Involve family and support networks. Educate family members and close friends about ADHD to enhance understanding and support.</li>
+                        <li>Stay informed and seek professional guidance. Regularly consult with healthcare professionals to discuss treatment options and adjustments.</li>
+                    </ul></div>
+                </div>
+            {% elif result == "Diabetes, Type 2" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about Diabetes, Type 2:</h3>
+                    <p>Diabetes, Type 2, is a chronic condition that affects how your body metabolizes sugar (glucose), a crucial source of energy. It occurs when the body becomes resistant to insulin or doesn't produce enough insulin.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Adopt a balanced and healthy diet. Focus on whole foods, fruits, vegetables, and whole grains. Limit the intake of processed foods and sugary beverages.</li>
+                        <li>Maintain a healthy weight. Losing excess weight can improve insulin sensitivity and blood sugar control.</li>
+                        <li>Engage in regular physical activity. Exercise helps lower blood sugar levels, improves insulin sensitivity, and supports overall well-being.</li>
+                        <li>Monitor blood sugar levels regularly. Keep track of your glucose levels as directed by your healthcare provider.</li>
+                        <li>Take medications as prescribed. If your doctor has prescribed medications, adhere to the recommended dosage and schedule.</li>
+                        <li>Manage stress. Chronic stress can affect blood sugar levels, so incorporating stress-reducing activities like meditation or deep breathing can be beneficial.</li>
+                        <li>Stay hydrated. Drinking enough water is essential for overall health and can help with blood sugar control.</li>
+                        <li>Quit smoking. Smoking can contribute to insulin resistance and increase the risk of complications associated with diabetes.</li>
+                        <li>Attend regular check-ups. Schedule regular appointments with your healthcare team for diabetes monitoring and management.</li>
+                        <li>Foot care. Check your feet regularly for any cuts, sores, or infections. Diabetes can affect circulation and increase the risk of foot issues.</li>
+                        <li>Limit alcohol intake. If you choose to drink, do so in moderation and be aware of the potential impact on blood sugar levels.</li>
+                    </ul></div>
+                </div>
+            {% elif result == "High Blood Pressure" %}
+                <div class="condition-info animate__animated animate__fadeInUp">
+                    <div class="info"><h3>Information about High Blood Pressure:</h3>
+                    <p>High Blood Pressure (Hypertension) is a condition where the force of the blood against the walls of the arteries is consistently too high. If left untreated, it can lead to serious health problems, including heart disease and stroke.</p>
+                </div><div class="precautions"><h3>Precautions and Measures:</h3>
+                    <ul>
+                        <li>Adopt a heart-healthy diet. Focus on fruits, vegetables, whole grains, lean proteins, and low-fat dairy. Limit sodium intake and avoid high-processed foods.</li>
+                        <li>Maintain a healthy weight. Losing even a small amount of weight can have a significant impact on blood pressure.</li>
+                        <li>Engage in regular physical activity. Aim for at least 150 minutes of moderate-intensity exercise per week, such as brisk walking or swimming.</li>
+                        <li>Limit alcohol intake. If you choose to drink, do so in moderation (up to one drink per day for women and up to two drinks per day for men).</li>
+                        <li>Quit smoking. Smoking can raise blood pressure and increase the risk of heart disease.</li>
+                        <li>Manage stress. Practice stress-reducing techniques such as deep breathing, meditation, or yoga.</li>
+                        <li>Monitor blood pressure regularly. Use a home blood pressure monitor and keep track of your readings.</li>
+                        <li>Take medications as prescribed. If prescribed medication, adhere to the recommended dosage and schedule.</li>
+                        <li>Limit caffeine intake. While the relationship between caffeine and blood pressure isn't fully understood, it's advisable to moderate caffeine consumption.</li>
+                        <li>Get enough sleep. Aim for 7-9 hours of quality sleep per night to support overall cardiovascular health.</li>
+                        <li>Reduce processed sugar intake. Limiting sugary foods and beverages can contribute to better blood pressure control.</li>
+                    </ul></div>
+                </div>
+            {% endif %}
+            
+            
+        {% endif %}
+
+    </div>
+</body>
+</html>

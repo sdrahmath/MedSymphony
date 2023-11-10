@@ -1,0 +1,98 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #051029;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+form{
+    width: fit-content;
+    font-size: medium;
+    
+    display: grid;
+    margin: auto;
+    background-color: #ffffffbd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.796);
+}
+.container {
+    text-align: center;
+    background-color: #051029;
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+.info{
+    text-align: center;
+    background-color: #ffffffa8;
+    padding: 20px;
+    border-radius: 8px 89px 0 0px;
+    
+}
+.precautions{
+    text-align: center;
+    background-color: #ffffffc2;
+    padding: 20px;
+    border-radius: 0 0 8px 89px;
+    
+}
+textarea {
+    height: 100%;
+    width:460px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 30px 20px 20px 20px;
+    border: 1px solid #0d0c0c;
+    border-radius: 14px;
+    resize: none;
+}
+
+button {
+    max-width: fit-content;
+    padding: 10px 20px;
+    background-color: #110e5aeb;
+    margin: 20px auto;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a1699eb;
+}
+
+.unordered_list {
+    display: flex;
+    list-style-type: decimal;
+    padding: 8px;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    border-radius: 15px;
+    width: 50%;
+    background: #ffffff99;
+}
+
+.lists {
+    margin: 5px 0;
+    padding: 10px 12px 10px 12px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-weight: 700;
+}
+ul{
+    list-style-type: disclosure-closed;
+    text-align: justify;
+}
+h1, h2, p {
+    color: #333;
+}
+
+.animate__animated {
+    animation-duration: 3s;
+}
