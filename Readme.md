@@ -16,7 +16,7 @@ To run the MedSymphony web application, follow these steps:
 
             python app.py
 
-4.Open your web browser and navigate to http://localhost:5000 to access the MedSymphony application.
+4. Open your web browser and navigate to http://localhost:5000 to access the MedSymphony application.
 
 ## Usage
 
